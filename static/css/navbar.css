@@ -1,0 +1,91 @@
+
+.checkbtn{
+    font-size: 1.5em;
+    float: right;
+    line-height: 2em;
+    margin-right: 0.7em;
+    cursor: pointer;
+    display: none;
+}
+#check{
+    display: none;
+}
+nav{
+    z-index:1;
+    overflow: hidden;
+    position: sticky;
+    top:0;
+    background:#36758E ;
+    color: white;
+    height: 3em;
+    width: 100%;
+    box-shadow: 0px 11px 10px -11px rgba(66, 68, 90, 1);
+}
+nav ul{
+
+    float: right;
+    margin-right:clamp(1rem, 4vw, 4rem);
+}
+nav ul li{
+    display: inline;
+    line-height: 1em;
+    margin:  0 0.3em;
+    text-transform: uppercase;
+}
+nav ul li a{
+font-size: 0.9em;
+    text-decoration: none;
+    color: white;
+
+}
+a:hover{
+    color: #fae588;
+
+}
+label.logo{
+    font-size: 1em;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 3em;
+    padding-left:3em;
+    font-family:'Raleway', sans-serif;
+
+}
+@media (max-width: 40em) {
+
+        label.logo{
+        font-size: 1em;
+        line-height: 3em;
+        padding: 0 1em;
+    }
+
+    nav ul li a{
+        font-size: 0.6em;
+    }
+    .checkbtn{
+        display: block;
+    }
+    ul{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #36758E;
+        top:2em;
+        left: -140%;
+        text-align: center;
+        transition: all .5s;
+    }
+    nav ul li{
+        display: block;
+        padding-top: 4em;
+    }
+    nav ul li a{
+        font-size: 1.5em;
+    }
+    a:hover, a.nav-li{
+        color:#fae588 ;
+    }
+    #check:checked ~ ul{
+        left: 0;
+    }
+}

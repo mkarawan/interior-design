@@ -1,0 +1,36 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Design Blog</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+ <nav>
+             <input type="checkbox" id="check">
+             <label for="check" class="checkbtn">
+                 <i class="fas fa-bars"></i>
+             </label>
+                <label class="logo">Design Blog  <img src="{% static 'images/logo.svg' %}" alt='logo'></label>
+
+             <ul>
+                <li><a  href="#start">Ideas</a></li>
+                <li><a href="#skills">Advices</a></li>
+                <li><a href="#exp">Garden</a></li>
+                <li><a href="#edu">DIY</a></li>
+             </ul>
+    </nav>
+{% block container %}
+
+{% endblock %}
+
+</body>
+</html>
