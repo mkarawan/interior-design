@@ -1,91 +1,108 @@
 
-.checkbtn{
-    font-size: 1.5em;
-    float: right;
-    line-height: 2em;
-    margin-right: 0.7em;
-    cursor: pointer;
-    display: none;
-}
-#check{
-    display: none;
-}
-nav{
-    z-index:1;
-    overflow: hidden;
-    position: sticky;
-    top:0;
-    background:#36758E ;
-    color: white;
-    height: 3em;
-    width: 100%;
-    box-shadow: 0px 11px 10px -11px rgba(66, 68, 90, 1);
-}
-nav ul{
 
-    float: right;
-    margin-right:clamp(1rem, 4vw, 4rem);
-}
-nav ul li{
-    display: inline;
-    line-height: 1em;
-    margin:  0 0.3em;
-    text-transform: uppercase;
-}
-nav ul li a{
-font-size: 0.9em;
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
     text-decoration: none;
+    }
+header{
+    text-decoration: none;
+    position: fixed;
+    top:0; left: 0; right: 0;
+    background: white;
+    box-shadow: 0 5px 10px rgba(0,0,0,.1);
+    padding: 20px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    }
+
+header .logo{
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: 25px;
+    color: #333;
+    }
+
+header .navbar ul{
+    list-style: none;
+
+    }
+
+header .navbar ul li{
+    position: relative;
+    float: left;
+    }
+
+
+header .navbar ul li a{
+    font-size: 20px;
+    padding: 20px;
+    color: #333;
+    display: block;
+
+    }
+
+header .navbar ul li a:hover{
+    background: #333;
     color: white;
-
-}
-a:hover{
-    color: #fae588;
-
-}
-label.logo{
-    font-size: 1em;
-    text-transform: uppercase;
-    font-weight: bold;
-    line-height: 3em;
-    padding-left:3em;
-    font-family:'Raleway', sans-serif;
-
-}
-@media (max-width: 40em) {
-
-        label.logo{
-        font-size: 1em;
-        line-height: 3em;
-        padding: 0 1em;
     }
 
-    nav ul li a{
-        font-size: 0.6em;
+header .navbar ul li ul{
+    display:none;
+    position: absolute;
+    left:0;
+    width:200px;
+    background: white;
     }
-    .checkbtn{
-        display: block;
+
+header .navbar ul li ul li{
+    width: 100%;
+    border-top:1px solid rgba(0,0,0,.1);
     }
-    ul{
-        position: fixed;
+header .navbar ul li:focus-within > ul,
+
+header .navbar ul li:hover > ul{
+    display: initial;
+    }
+
+#menu-bar{
+    display: none;
+    }
+header label{
+    font-size:20px;
+    color: #333;
+    cursor: pointer;
+    display:none;
+    }
+
+@media(max-width:991px){
+    header{
+        padding:20px;
+    }
+    header label{
+        display: initial;
+    }
+    header .navbar{
+        position: absolute;
+        top: 100%; left: 0; right:0;
+        background: white;
+        border-top:1px solid rgba(0,0,0,.1);
+        display:none;
+    }
+    header .navbar ul li{
         width: 100%;
-        height: 100vh;
-        background: #36758E;
-        top:2em;
-        left: -140%;
-        text-align: center;
-        transition: all .5s;
     }
-    nav ul li{
-        display: block;
-        padding-top: 4em;
+    header .navbar ul li ul{
+        position: relative;
+        width: 100%;
     }
-    nav ul li a{
-        font-size: 1.5em;
+    header .navbar ul li ul li{
+        background: #eee;
     }
-    a:hover, a.nav-li{
-        color:#fae588 ;
-    }
-    #check:checked ~ ul{
-        left: 0;
+    #menu-bar:checked ~ .navbar{
+    display: initial;
     }
 }
