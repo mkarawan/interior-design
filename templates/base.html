@@ -1,0 +1,95 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Design Blog</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
+<!--        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>-->
+
+</head>
+<body>
+
+<header>
+        <a href="{% url 'blog:blog' %}" class="logo">Design Blog</a>
+    <input type="checkbox" id="menu-bar">
+    <label for="menu-bar">Menu</label>
+     <nav class="navbar">
+         <ul>
+             <li><a href="#">Categories +</a>
+             <ul>
+                 <li><a href="#">Ideas</a></li>
+                 <li><a href="#">Advices</a></li>
+                 <li><a href="#">Garden</a></li>
+                 <li><a href="#">DIY</a></li>
+             </ul></li>
+             <li><a href="#">About me</a></li>
+             <li><a href="#">My projects</a></li>
+             <li><a href="#">Contact</a></li>
+
+         </ul>
+     </nav>
+</header>
+
+
+
+<!--             <input type="checkbox" id="check">-->
+<!--             <label for="check" class="checkbtn">-->
+<!--                 <i class="fas fa-bars"></i>-->
+<!--             </label>-->
+<!--                <label class="logo"><a href="{% url 'blog:blog' %}">Design Blog</a><img src="{% static 'images/logo.svg' %}" alt='logo'></label>-->
+<!--             <ul>-->
+<!--                <li><a  href="{% url 'blog:ideas' %}">Categories</a></li>-->
+<!--                 -->
+<!--                <li><a href="{% url 'blog:advices' %}">AboutMe</a></li>-->
+<!--                <li><a href="{% url 'blog:garden' %}">My projects</a></li>-->
+<!--                <li><a href="{% url 'blog:diy' %}">Contact</a></li>-->
+
+<!--             </ul>-->
+
+
+
+{% block container %}
+
+{% endblock %}
+    <section class="archives">
+        <div>
+        <h1>Archives</h1>
+        <ul>
+            <li>2022</li>
+            <li>may</li>
+            <li>april</li>
+            <li>february</li>
+        </ul>
+            </div>
+    </section>
+
+    <section class="tags">
+          <div>
+        <h1>Tags</h1>
+        <ul>
+            <li>minimalism</li>
+            <li>christmas decor</li>
+            <li>small bathrooms</li>
+
+        </ul>
+        </div>
+    </section>
+
+    <section class="contact">
+    <div>
+    <p>contact</p>
+    <p>facebook</p>
+    <p>instagram</p>
+    <p>email</p>
+    <p>copytight</p>
+    </div>
+    </section>
+
+</body>
+</html>
