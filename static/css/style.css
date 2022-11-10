@@ -1,5 +1,6 @@
-section, .photo img {
-width: 70%;
+
+.first .photo img{
+max-width:100%;
 margin: auto;
 display: block;
 }
@@ -13,4 +14,457 @@ height: 200px;
 
 .post image{
 height: 300px;}
+
+.first{
+margin-top: 150px;
+}
+.first .heading{
+text-align: center;
+margin: auto;
+}
+
+
+.art-photo{
+height: 300px;}
+
+/* ----------------------- my projects ------------------------*/
+.projects{
+
+  margin: 0;
+  margin-top: 150px;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 40px 20px 0 20px;
+}
+
+.heading{
+  width: 50%;
+  padding-bottom: 50px;
+}
+.heading h3{
+  font-size: 3em;
+  font-weight: bolder;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #222;
+}
+
+.heading h3 span{
+  font-weight: 100;
+}
+.container .box{
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+}
+
+.container .box .dream{
+  display: flex;
+  flex-direction: column;
+  width: 32.5%;
+}
+
+.container .box .dream img{
+  width: 100%;
+  padding-bottom: 15px;
+  border-radius: 5px;
+}
+
+.container .btn{
+  margin: 40px 0 70px 0;
+  background: #222;
+  padding: 15px 40px ;
+  border-radius: 5px;
+}
+
+.container .btn a{
+ color: #fff;
+ font-size: 1.2em;
+ text-decoration: none;
+ font-weight: bolder;
+ letter-spacing: 3px;
+}
+
+@media only screen and (max-width: 769px){
+    .container .box{
+   flex-direction: column;
+  }
+
+.container .box .dream{
+  width: 100%;
+}
+
+}
+
+@media only screen and (max-width: 643px){
+.heading{
+  width: 100%;
+}
+.heading h3{
+  font-size: 1em;
+
+}
+
+
+
+}
+
+/* ----------------------- end of my projects ------------------------*/
+/*------------------------about me --------------------------------*/
+.about{
+    margin: 0;
+    margin-top: 150px;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1.5;
+    font-family: 'Quicksand', sans-serif;
+}
+.about .heading{
+text-align: center;
+margin: auto;
+}
+:root{
+    --color:#ff282b;
+}
+section .content{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+.contain{
+    width: 100%;
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.grid{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 2.5rem;
+    align-items: center;
+    justify-content: center;
+}
+.left img{
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+      border-radius: 5px;
+}
+.right > *{
+    margin-bottom: 1.1rem;
+
+}
+.right h4{
+    font-weight: 500;
+    background: var(--color);
+    display: inline-block;
+    padding: 5px 15px;
+    font-size: 16px;
+    border-radius: 4px;
+}
+.right h1{
+    font-size: 2rem;
+    font-weight: 800;
+}
+.right p{
+    text-align: justify;
+}
+.btn{
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 25px;
+    border: 2px solid var(--color);
+    border-radius: 5px;
+    position: relative;
+    z-index: 1;
+}
+.btn::after{
+    content: "";
+    background: var(--color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    z-index: -1;
+    transition: width .5s ease;
+}
+.btn:hover::after{
+    width: 100%;
+}
+@media (max-width:768px){
+    .grid{
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/*------------------- end of about me ---------------------*/
+
+/*------------------------contact--------------------------------*/
+
+.field{
+	width: 100%;
+	border: 2px solid rgba(0, 0, 0, 0);
+	outline: none;
+	background-color: rgba(230, 230, 230, 0.6);
+	padding: 0.5rem 1rem;
+	font-size: 1.1rem;
+	margin-bottom: 22px;
+	transition: .3s;
+}
+
+.field:hover{
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+textarea{
+	min-height: 150px;
+}
+
+.field:focus{
+    border: 2px solid rgba(30,85,250,0.47);
+    background-color: #fff;
+}
+
+
+/*------------------- end of contact---------------------*/
+/*--------------------main------------------------*/
+.pocket{
+    display: grid;
+    grid-template-columns: 2.5fr 1fr;
+    gap:1.5rem;
+    background:#eee;
+}
+
+.pocket .posts-container .post{
+    width:100%;
+    padding:2rem;
+    background:#fff;
+    border:var(--border);
+    border-radius: .5rem;
+    margin-bottom: 1.5rem;
+}
+
+.pocket .posts-container .post .image{
+    height: 40rem;
+    width:100%;
+    border-radius: .5rem;
+    object-fit: cover;
+}
+
+.pocket .posts-container .post .date{
+    padding-top: 2rem;
+    font-size: 1.5rem;
+    color:var(--orange);
+}
+
+.pocket .posts-container .post .title{
+    padding-top: 1.5rem;
+    font-size: 2.5rem;
+    color:var(--black);
+}
+
+.pocket .posts-container .post .text{
+    color:var(--light-color);
+    font-size: 1.6rem;
+    line-height: 1.7;
+    padding:1rem 0;
+}
+
+.pocket .posts-container .links{
+    border-top: var(--border);
+    margin-top: .5rem;
+    padding-top: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.pocket .posts-container .links .user{
+    margin-right: auto;
+}
+
+.pocket .posts-container .links .icon{
+    padding-right: 1rem;
+}
+
+.pocket .posts-container .links a{
+    font-size: 1.5rem;
+    color:var(--light-color);
+}
+
+.pocket .posts-container .links a i{
+    padding-right: .2rem;
+    color:var(--black);
+}
+
+.pocket .posts-container .links a:hover{
+    color:var(--orange);
+}
+
+.pocket .posts-container .links a:hover i{
+    color:var(--orange);
+}
+
+.pocket .sidebar .sidebar-box{
+    border:var(--border);
+    border-radius: .5rem;
+    overflow:hidden;
+    background:#fff;
+    margin-bottom: 1.5rem;
+}
+
+.pocket .sidebar .sidebar-box .title{
+    padding:1.5rem;
+    font-size: 2rem;
+    color:#fff;
+    background:var(--black);
+    text-transform: capitalize;
+}
+
+.pocket .sidebar .sidebar-box .about-box{
+    text-align: center;
+    padding:1rem 1.5rem;
+}
+
+.pocket .sidebar .sidebar-box .about-box img{
+    height: 15rem;
+    width: 15rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin:1rem 0;
+}
+
+.pocket .sidebar .sidebar-box .about-box h3{
+    color:var(--orange);
+    font-size: 2rem;
+}
+
+.pocket .sidebar .sidebar-box .about-box p{
+    color:var(--light-color);
+    font-size: 1.5rem;
+    line-height: 1.5;
+    padding:1rem;
+}
+
+.pocket .sidebar .sidebar-box .about-box .follow{
+    padding:1rem 0;
+}
+
+.pocket.sidebar .sidebar-box .about-box .follow a{
+    height: 4rem;
+    line-height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    background:var(--black);
+    color:#fff;
+    font-size: 1.7rem;
+    margin:0 .1rem;
+}
+
+.pocket .sidebar .sidebar-box .about-box .follow a:hover{
+    background:var(--orange);
+}
+
+.pocket .sidebar .sidebar-box .category{
+    padding:1rem 1.5rem;
+}
+
+.pocket .sidebar .sidebar-box .category a{
+    padding:.4rem 0;
+    font-size: 1.5rem;
+    color:var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pocket .sidebar .sidebar-box .category a span{
+    background:var(--light-color);
+    color:#fff;
+    border-radius: .5rem;
+    padding:.5rem;
+}
+
+.pocket .sidebar .sidebar-box .category a:hover{
+    color:var(--orange);
+}
+
+.pocket .sidebar .sidebar-box .category a:hover span{
+    background-color:var(--orange);
+}
+
+.pocket .sidebar .sidebar-box .p-post{
+    padding:1rem 2rem;
+}
+
+.pocket .sidebar .sidebar-box .p-post a{
+    padding:1rem 0;
+    display: block;
+}
+
+.pocket .sidebar .sidebar-box .p-post a h3{
+    color:var(--black);
+    font-size: 2rem;
+    padding-bottom: 1rem;
+}
+
+.container .sidebar .sidebar-box .p-post a span{
+    color:var(--light-color);
+    font-size: 1.5rem;
+}
+
+.pocket .sidebar .sidebar-box .p-post a span i{
+    padding-right: .2rem;
+}
+
+.pocket .sidebar .sidebar-box .p-post a:hover h3{
+    color:var(--orange);
+}
+
+.pocket .sidebar .sidebar-box .tags{
+    padding:1rem;
+}
+
+.pocket .sidebar .sidebar-box .tags a{
+    display: inline-block;
+    padding:1rem 1.5rem;
+    font-size: 1.5rem;
+    color:var(--black);
+    border-radius: .5rem;
+    border:var(--border);
+    margin:.5rem;
+}
+
+.pocket .sidebar .sidebar-box .tags a:hover{
+    background:var(--black);
+    color:#fff;
+}
+/*-----------------end of main----------------------*/
+@media (max-width:768px){
+
+    .pocket{
+        grid-template-columns: 1fr;
+        gap:0;
+    }
+
+    .pocket .posts-container .post .image{
+        height: 30rem;;
+    }
+
+}
+.contact-footer{
+display:flex;
+justify-content: space-between;
+margin:10px 25px;
+
+}
 

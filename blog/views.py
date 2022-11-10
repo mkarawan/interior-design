@@ -8,20 +8,20 @@ class HomeView(TemplateView):
     template_name = 'blog/main.html'
 
 
-class Ideas(TemplateView):
-    template_name = 'blog/ideas.html'
+class Category(TemplateView):
+    template_name = 'blog/category.html'
 
 
 class Article(TemplateView):
     template_name = 'blog/article.html'
 
-class Advices(TemplateView):
-    template_name = 'blog/advices.html'
+class AboutMe(TemplateView):
+    template_name = 'blog/aboutme.html'
 
-class Garden(TemplateView):
-    template_name = 'blog/garden.html'
+class Projects(TemplateView):
+    template_name = 'blog/projects.html'
 
-class Diy(TemplateView):
-    template_name = 'blog/diy.html'
+class Contact(TemplateView):
+    template_name = 'blog/contact.html'
 
 
