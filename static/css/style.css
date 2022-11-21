@@ -1,19 +1,52 @@
-
-.first .photo img{
-max-width:100%;
-margin: auto;
-display: block;
+body{
+    line-height: 1.7;
+    position: relative;
+    min-height:86vh;
+    padding-bottom:4rem;
 }
-.article{
-height: 300px;
-border: 1px black solid}
-
-img.art-photo{
-height: 200px;
+.back{
+    margin-left: 1rem;
+}
+.back button{
+    cursor: pointer;
+    background: none;
+    border: none;
+    margin: 0.8rem 2rem;
+    display:flex;
+    align-items: center;
+    font-size: 2rem;
+    font-weight:bold;
+    margin-left: 0.5rem;
+}
+.back button:hover{
+    color: var(--color);
+}
+.back img{
+    text-align: center;
+    height: 32px;
+    margin-right: 0.5rem;
 }
 
-.post image{
-height: 300px;}
+.first .photo{
+width:100%;
+height: 420px;
+background-image:url("/static/images/header.png");
+background-size:cover;
+background-position: 50%;
+margin-bottom: 3.5rem;
+}
+
+
+.width{
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    }
+.width-article{
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    }
 
 .first{
 margin-top: 150px;
@@ -22,7 +55,6 @@ margin-top: 150px;
 text-align: center;
 margin: auto;
 }
-
 
 .art-photo{
 height: 300px;}
@@ -78,19 +110,18 @@ height: 300px;}
   border-radius: 5px;
 }
 
-.container .btn{
-  margin: 40px 0 70px 0;
+.btn{
   background: #222;
   padding: 15px 40px ;
   border-radius: 5px;
 }
 
-.container .btn a{
+.btn a{
  color: #fff;
  font-size: 1.2em;
  text-decoration: none;
  font-weight: bolder;
- letter-spacing: 3px;
+ letter-spacing: 2px;
 }
 
 @media only screen and (max-width: 769px){
@@ -104,20 +135,19 @@ height: 300px;}
 
 }
 
-@media only screen and (max-width: 643px){
+@media only screen and (max-width: 768px){
 .heading{
   width: 100%;
 }
 .heading h3{
-  font-size: 1em;
+  font-size: 1.5em;
 
 }
-
-
 
 }
 
 /* ----------------------- end of my projects ------------------------*/
+
 /*------------------------about me --------------------------------*/
 .about{
     margin: 0;
@@ -132,7 +162,7 @@ text-align: center;
 margin: auto;
 }
 :root{
-    --color:#ff282b;
+    --color:#00916e;
 }
 section .content{
     height: 100vh;
@@ -140,8 +170,9 @@ section .content{
     align-items: center;
 }
 .contain{
+
     width: 100%;
-    max-width: 1160px;
+    max-width: 1300px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -163,11 +194,14 @@ section .content{
 
 }
 .right h4{
-    font-weight: 500;
+    color: #fff;
+    font-size: 1.2em;
+    text-decoration: none;
+    font-weight: bolder;
+    letter-spacing: 2px;
     background: var(--color);
     display: inline-block;
-    padding: 5px 15px;
-    font-size: 16px;
+    padding: 10px 15px;
     border-radius: 4px;
 }
 .right h1{
@@ -177,6 +211,7 @@ section .content{
 .right p{
     text-align: justify;
 }
+
 .btn{
     text-decoration: none;
     display: inline-block;
@@ -215,7 +250,7 @@ section .content{
 	width: 100%;
 	border: 2px solid rgba(0, 0, 0, 0);
 	outline: none;
-	background-color: rgba(230, 230, 230, 0.6);
+	background-color: #e9f5f2;
 	padding: 0.5rem 1rem;
 	font-size: 1.1rem;
 	margin-bottom: 22px;
@@ -223,7 +258,7 @@ section .content{
 }
 
 .field:hover{
-	background-color: rgba(0, 0, 0, 0.1);
+	background-color: #daebe6;
 }
 
 textarea{
@@ -231,7 +266,7 @@ textarea{
 }
 
 .field:focus{
-    border: 2px solid rgba(30,85,250,0.47);
+    border: 2px solid #9bc9bb;
     background-color: #fff;
 }
 
@@ -242,45 +277,48 @@ textarea{
     display: grid;
     grid-template-columns: 2.5fr 1fr;
     gap:1.5rem;
-    background:#eee;
+
 }
 
-.pocket .posts-container .post{
+.posts-container .post{
     width:100%;
-    padding:2rem;
-    background:#fff;
+    padding: 2rem;
+    box-sizing: border-box;
+    -webkit-box-shadow: 1px 1px 10px -2px rgba(95, 95, 95, 0.45);
+    -moz-box-shadow: 1px 1px 10px -2px rgba(95, 95, 95, 0.45);
+    box-shadow: 1px 1px 10px -2px rgba(95, 95, 95, 0.45);
     border:var(--border);
     border-radius: .5rem;
     margin-bottom: 1.5rem;
 }
+.posts-container .post a{
+    color: black;
+}
 
-.pocket .posts-container .post .image{
-    height: 40rem;
+.posts-container .post .image{
+    height: 30rem;
     width:100%;
     border-radius: .5rem;
     object-fit: cover;
 }
 
-.pocket .posts-container .post .date{
+.posts-container .post .date{
     padding-top: 2rem;
-    font-size: 1.5rem;
     color:var(--orange);
 }
 
-.pocket .posts-container .post .title{
+.posts-container .post .title{
     padding-top: 1.5rem;
-    font-size: 2.5rem;
+    font-size: 2rem;
     color:var(--black);
 }
-
-.pocket .posts-container .post .text{
+.posts-container .post .text{
+    font-size:1.1rem;
     color:var(--light-color);
-    font-size: 1.6rem;
-    line-height: 1.7;
     padding:1rem 0;
 }
 
-.pocket .posts-container .links{
+.posts-container .links{
     border-top: var(--border);
     margin-top: .5rem;
     padding-top: 1.5rem;
@@ -288,20 +326,25 @@ textarea{
     align-items: center;
 }
 
-.pocket .posts-container .links .user{
+.posts-container .links .user{
+    display:flex;
+    align-items: center;
     margin-right: auto;
 }
 
-.pocket .posts-container .links .icon{
+.posts-container .links .icon{
+    display:flex;
     padding-right: 1rem;
 }
-
-.pocket .posts-container .links a{
-    font-size: 1.5rem;
+ .posts-container .links .icon img{
+    padding-right:0.3rem;
+}
+.posts-container .links a{
+    font-size: 1.1rem;
     color:var(--light-color);
 }
 
-.pocket .posts-container .links a i{
+.posts-container .links a i{
     padding-right: .2rem;
     color:var(--black);
 }
@@ -315,6 +358,9 @@ textarea{
 }
 
 .pocket .sidebar .sidebar-box{
+    -webkit-box-shadow: 1px 1px 10px -2px rgba(95, 95, 95, 0.45);
+    -moz-box-shadow: 1px 1px 10px -2px rgba(95, 95, 95, 0.45);
+    box-shadow: 1px 1px 10px -2px rgba(95, 95, 95, 0.45);
     border:var(--border);
     border-radius: .5rem;
     overflow:hidden;
@@ -324,8 +370,7 @@ textarea{
 
 .pocket .sidebar .sidebar-box .title{
     padding:1.5rem;
-    font-size: 2rem;
-    color:#fff;
+    font-size: 1.5rem;
     background:var(--black);
     text-transform: capitalize;
 }
@@ -335,7 +380,7 @@ textarea{
     padding:1rem 1.5rem;
 }
 
-.pocket .sidebar .sidebar-box .about-box img{
+.pocket .sidebar .sidebar-box .about-box .about-image{
     height: 15rem;
     width: 15rem;
     border-radius: 50%;
@@ -345,31 +390,34 @@ textarea{
 
 .pocket .sidebar .sidebar-box .about-box h3{
     color:var(--orange);
-    font-size: 2rem;
+    font-size: 1.7rem;
 }
 
 .pocket .sidebar .sidebar-box .about-box p{
     color:var(--light-color);
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     line-height: 1.5;
     padding:1rem;
 }
 
 .pocket .sidebar .sidebar-box .about-box .follow{
+display:flex;
+justify-content: space-between;
+    margin: auto;
     padding:1rem 0;
 }
 
-.pocket.sidebar .sidebar-box .about-box .follow a{
+.pocket .sidebar .sidebar-box .about-box .follow a{
     height: 4rem;
     line-height: 4rem;
     width: 4rem;
     border-radius: 50%;
     background:var(--black);
-    color:#fff;
-    font-size: 1.7rem;
+    font-size: 1.3rem;
     margin:0 .1rem;
 }
-
+.pocket .sidebar .sidebar-box .about-box .follow a img{
+}
 .pocket .sidebar .sidebar-box .about-box .follow a:hover{
     background:var(--orange);
 }
@@ -380,7 +428,7 @@ textarea{
 
 .pocket .sidebar .sidebar-box .category a{
     padding:.4rem 0;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color:var(--black);
     display: flex;
     align-items: center;
@@ -388,32 +436,35 @@ textarea{
 }
 
 .pocket .sidebar .sidebar-box .category a span{
-    background:var(--light-color);
-    color:#fff;
-    border-radius: .5rem;
+    border-radius: 50%;
     padding:.5rem;
 }
 
 .pocket .sidebar .sidebar-box .category a:hover{
-    color:var(--orange);
+    color:var(--color);
 }
 
 .pocket .sidebar .sidebar-box .category a:hover span{
-    background-color:var(--orange);
+    background-color:var(--color);
+    color:#fff;
 }
 
 .pocket .sidebar .sidebar-box .p-post{
+
     padding:1rem 2rem;
 }
 
 .pocket .sidebar .sidebar-box .p-post a{
+    color:#00916e;
+
+    text-decoration: none;
     padding:1rem 0;
     display: block;
 }
 
 .pocket .sidebar .sidebar-box .p-post a h3{
-    color:var(--black);
-    font-size: 2rem;
+
+    font-size: 1.3rem;
     padding-bottom: 1rem;
 }
 
@@ -436,8 +487,8 @@ textarea{
 
 .pocket .sidebar .sidebar-box .tags a{
     display: inline-block;
-    padding:1rem 1.5rem;
-    font-size: 1.5rem;
+    padding:1rem 1rem;
+    font-size: 1.3rem;
     color:var(--black);
     border-radius: .5rem;
     border:var(--border);
@@ -446,25 +497,63 @@ textarea{
 
 .pocket .sidebar .sidebar-box .tags a:hover{
     background:var(--black);
-    color:#fff;
+    color:var(--color);
 }
+
 /*-----------------end of main----------------------*/
+
+    footer{
+        width: 100%;
+        position:absolute;
+        bottom:0;
+        }
+    footer .contact-footer{
+        margin: 10px 25px;
+        display:flex;
+        justify-content: space-between;
+        color: grey;
+    }
+/*-----------------media queries--------------------*/
 @media (max-width:768px){
+
+    .back button{
+        font-size: 1.2rem;
+    }
+    .back img{
+        height: 20px;
+    }
+
+    .first .photo{
+        height: 300px;
+    }
 
     .pocket{
         grid-template-columns: 1fr;
         gap:0;
     }
 
-    .pocket .posts-container .post .image{
-        height: 30rem;;
+    .posts-container .post .image{
+    height: 25rem;
+    }
+    .pocket .sidebar .sidebar-box .about-box .follow{
+        margin: 0px 30px;
+    }
+    footer .contact-footer{
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width:500px){
+     footer .contact-footer{
+            display:block;
+            margin:auto;
+            text-align:center;
+    }
+        .first .photo{
+        height: 230px;
     }
 
+    .posts-container .post .image{
+    height: 20rem;
+    }
 }
-.contact-footer{
-display:flex;
-justify-content: space-between;
-margin:10px 25px;
-
-}
-

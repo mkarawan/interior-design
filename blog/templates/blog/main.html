@@ -9,17 +9,15 @@
       <h3>Welcome<span> to my Blog</span></h3>
     </div>
 <div class="photo">
-<img src="{% static 'images/header.png' %}"  alt="interior-design-photo"/>
-
 </div>
 <!-- posts section starts  -->
-
+<div class="width">
 <section class="pocket" id="posts">
 
     <div class="posts-container">
 
         <div class="post">
-            <img src="images/blog-1.jpg" alt="" class="image">
+            <a href="{% url 'blog:article' %}"> <img src="images/blog-3.jpg" alt="" class="image">
             <div class="date">
                 <i class="far fa-clock"></i>
                 <span>1st may, 2021</span>
@@ -30,68 +28,15 @@
             <div class="links">
                 <a href="#" class="user">
                     <i class="far fa-user"></i>
-                    <span>by admin</span>
+                    <p>by admin</p>
                 </a>
                 <a href="#" class="icon">
-                    <i class="far fa-comment"></i>
-                    <span>(45)</span>
+                    <img src="{% static 'images/chat.png' %}" alt="comments">
+                    <p>(45)</p>
                 </a>
-                <a href="#" class="icon">
-                    <i class="far fa-share-square"></i>
-                    <span>(29)</span>
-                </a>
-            </div>
-        </div>
 
-        <div class="post">
-            <img src="images/blog-2.jpg" alt="" class="image">
-            <div class="date">
-                <i class="far fa-clock"></i>
-                <span>1st may, 2021</span>
             </div>
-            <h3 class="title">blog title goes here</h3>
-            <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum molestias rerum numquam, quos aut est culpa quisquam excepturi sed a inventore dicta tempore consequuntur possimus magnam corporis cum doloremque quasi fugiat exercitationem aliquid cupiditate pariatur. Dolor laboriosam voluptatem ex praesentium magni error debitis maxime alias autem distinctio. Fuga, esse velit!</p>
-            <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, reiciendis fugiat quas nemo quia omnis repellat obcaecati quaerat voluptates fuga error dicta cupiditate pariatur soluta dolorum quis eum quibusdam quam?</p>
-            <div class="links">
-                <a href="#" class="user">
-                    <i class="far fa-user"></i>
-                    <span>by admin</span>
-                </a>
-                <a href="#" class="icon">
-                    <i class="far fa-comment"></i>
-                    <span>(45)</span>
-                </a>
-                <a href="#" class="icon">
-                    <i class="far fa-share-square"></i>
-                    <span>(29)</span>
-                </a>
-            </div>
-        </div>
-
-        <div class="post">
-            <img src="images/blog-3.jpg" alt="" class="image">
-            <div class="date">
-                <i class="far fa-clock"></i>
-                <span>1st may, 2021</span>
-            </div>
-            <h3 class="title">blog title goes here</h3>
-            <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum molestias rerum numquam, quos aut est culpa quisquam excepturi sed a inventore dicta tempore consequuntur possimus magnam corporis cum doloremque quasi fugiat exercitationem aliquid cupiditate pariatur. Dolor laboriosam voluptatem ex praesentium magni error debitis maxime alias autem distinctio. Fuga, esse velit!</p>
-            <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, reiciendis fugiat quas nemo quia omnis repellat obcaecati quaerat voluptates fuga error dicta cupiditate pariatur soluta dolorum quis eum quibusdam quam?</p>
-            <div class="links">
-                <a href="#" class="user">
-                    <i class="far fa-user"></i>
-                    <span>by admin</span>
-                </a>
-                <a href="#" class="icon">
-                    <i class="far fa-comment"></i>
-                    <span>(45)</span>
-                </a>
-                <a href="#" class="icon">
-                    <i class="far fa-share-square"></i>
-                    <span>(29)</span>
-                </a>
-            </div>
-        </div>
+        </a></div>
 
     </div>
 
@@ -100,14 +45,15 @@
         <div class="sidebar-box">
             <h3 class="title">about me</h3>
             <div class="about-box">
-                <img src="{% static 'images/woman.jpg'%}" alt="">
+                <img class="about-image" src="{% static 'images/woman.jpg'%}" alt="">
                 <h3>Kailee Duana</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, officia.</p>
+                <button class="btn"><a href="{% url 'blog:about_me' %}">Read more</a></button>
                 <div class="follow">
-                    <a href="#" class="fab fa-facebook-f"></a>
-                    <a href="#" class="fab fa-twitter"></a>
-                    <a href="#" class="fab fa-instagram"></a>
-                    <a href="#" class="fab fa-linkedin"></a>
+                    <a href="https://www.facebook.com/" class="fab fa-facebook-f"><img src="{% static 'images/facebook.png' %}" alt="facebook"></a>
+                    <a href="https://twitter.com/?lang=pl" class="fab fa-twitter"><img src="{% static 'images/twitter.png' %}" alt="twitter"></a>
+                    <a href="https://www.instagram.com/" class="fab fa-instagram"><img src="{% static 'images/instagram.png' %}" alt="instagram"></a>
+                    <a href="https://www.linkedin.com/in/mkarawan/" class="fab fa-linkedin"><img src="{% static 'images/linkedin.png' %}" alt="linkedin"></a>
                 </div>
             </div>
         </div>
@@ -115,29 +61,29 @@
         <div class="sidebar-box">
             <h3 class="title">categories</h3>
             <div class="category">
-                <a href="#"> ideas <span>42</span></a>
-                <a href="#"> advices <span>75</span> </a>
-                <a href="#"> garden <span>22</span> </a>
-                <a href="#"> diy <span>17</span> </a>
+                <a href="{% url 'blog:category' %}"> ideas <span>42</span></a>
+                <a href="{% url 'blog:category' %}"> advices <span>75</span> </a>
+                <a href="{% url 'blog:category' %}"> garden <span>22</span> </a>
+                <a href="{% url 'blog:category' %}"> diy <span>17</span> </a>
             </div>
         </div>
 
         <div class="sidebar-box">
             <h3 class="title">popular posts</h3>
             <div class="p-post">
-                <a href="#">
+                <a href="{% url 'blog:article' %}">
                     <h3>01. blog title goes here</h3>
                     <span><i class="far fa-clock"></i>1st may, 2021</span>
                 </a>
-                <a href="#">
+                <a href="{% url 'blog:article' %}">
                     <h3>02. blog title goes here</h3>
                     <span><i class="far fa-clock"></i>1st may, 2021</span>
                 </a>
-                <a href="#">
+                <a href="{% url 'blog:article' %}">
                     <h3>03. blog title goes here</h3>
                     <span><i class="far fa-clock"></i>1st may, 2021</span>
                 </a>
-                <a href="#">
+                <a href="{% url 'blog:article' %}">
                     <h3>04. blog title goes here</h3>
                     <span><i class="far fa-clock"></i>1st may, 2021</span>
                 </a>
@@ -164,6 +110,7 @@
     </div>
 
 </section>
+    </div>
 
 <!-- posts section ends -->
 
