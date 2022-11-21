@@ -3,24 +3,81 @@
 
 
 {% block container %}
+<div class="first">
+            <div class="heading">
+      <h3>Article <span>category </span></h3>
+    </div>
+    
+    <div class="width-article">
+    <div class="back">
+        <button id="goback">
+        <img src="{% static 'images/back.png' %}">
+        Back</button>
+            </div>
+    <div class="posts-container">
 
+        <div class="post">
+            <img src="images/blog-3.jpg" alt="" class="image">
+            <div class="date">
+                <i class="far fa-clock"></i>
+                <span>1st may, 2021</span>
+            </div>
+            <h3 class="title">blog title goes here</h3>
+            <p class="text">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis dapibus felis, ut tincidunt mauris aliquet id.
+                Ut vitae odio nec ligula tempor pharetra nec sit amet est. Pellentesque leo leo, dictum quis condimentum
+                ut, eleifend vel erat. Quisque mattis metus sit amet ipsum ultrices, ut porttitor quam hendrerit.
+                Praesent ornare ex at arcu rutrum fringilla. Nulla facilisi. Phasellus malesuada viverra efficitur.
+                Vestibulum fermentum eget sem eget bibendum. Nulla lacinia, nulla vel dignissim ultrices, orci magna
+                congue eros, a vestibulum nulla nunc sit amet libero. Curabitur condimentum sollicitudin porttitor.
+                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus
+                sed neque suscipit diam porttitor molestie. Maecenas scelerisque ultricies sem, quis pharetra lectus.
+                Etiam ullamcorper dolor elementum, cursus orci at, egestas augue. Maecenas et tellus mi.cum doloremque
+                quasi fugiat exercitationem aliquid cupiditate pariatur. Dolor laboriosam voluptatem ex praesentium
+                magni error debitis maxime alias autem distinctio. Fuga, esse velit!</p>
+            <p class="text">Nunc viverra porttitor turpis sed congue. Mauris tortor odio, vestibulum vitae dui sit amet,
+                euismod fermentum purus. Sed ac erat cursus, pellentesque tortor suscipit, tincidunt quam. Duis ut ex
+                tortor. Nulla est elit, tristique sit amet nisi sed, consequat facilisis lectus. Mauris ex urna, varius
+                in nisl eu, semper suscipit tortor. Etiam dapibus nisl lectus, ac bibendum urna malesuada at. Praesent
+                at pretium eros, a malesuada lorem.at obcaecati quaerat voluptates fuga error dicta cupiditate pariatur
+                soluta dolorum quis eum quibusdam quam?</p>
+            <p class="text">Duis consequat consectetur tellus non consectetur. Aliquam ultricies velit in turpis aliquet
+                ullamcorper. Duis lacinia eros quis ultrices aliquam. Vivamus placerat ante eget lectus rutrum posuere.
+                Cras eget nisi eu orci aliquam interdum. Nunc porttitor auctor elit, id laoreet nisi malesuada quis.
+                Vestibulum at sem interdum, fringilla magna at, finibus diam. Nunc nec efficitur libero. Vestibulum
+                luctus fermentum quam in dictum. Cras convallis leo eu nibh tempor malesuada in sed purus. Etiam
+                consectetur elit turpis, in consectetur turpis vulputate ac.</p>
+            <p class="text">Praesent sed ultrices tortor. Morbi vitae nisi laoreet, consequat leo eu, consectetur arcu.
+                Etiam fringilla massa nec porta lobortis. Vivamus at semper mi. Quisque vestibulum euismod suscipit.
+                Nunc tempor turpis nec egestas sodales. Maecenas finibus aliquam orci sollicitudin suscipit. Nam
+                placerat purus metus, et pulvinar nulla congue et. Donec commodo imperdiet odio nec interdum. Fusce sed
+                nisi non erat viverra egestas. Aenean faucibus nulla vitae ipsum interdum tempor. Aenean pharetra est
+                in dui mollis, quis sagittis ex feugiat.</p>
+            <p class="text">Sed convallis nunc sed mi elementum, id pellentesque felis aliquet consectetur arcu.
+                Etiam fringilla massa nec porta lobortis. Vivamus at semper mi. Quisque vestibulum euismod suscipit.
+                Nunc tempor turpis nec egestas sodales. Maecenas finibus aliquam orci sollicitudin suscipit. Nam
+                placerat purus metus, et pulvinar nulla congue et. Donec commodo imperdiet odio nec interdum. Fusce sed
+                Etiam fringilla massa nec porta lobortis. Vivamus at semper mi. Quisque vestibulum euismod suscipit.
+                nisi non erat viverra egestas. Aenean faucibus nulla vitae ipsum interdum tempor. Aenean pharetra est
+                in dui mollis, quis sagittis ex feugiat.</p>
 
-        <section class="post">
-            <h1>Title</h1>
-            <img class="art-photo" src="{% static 'images/christmas.jpg' %}" alt="article-photo">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet metus eu nibh luctus,
-                at mollis leo aliquet. Donec gravida, turpis ac varius fermentum, diam est dictum lectus,
-                id lacinia ex tellus quis lacus. Aliquam quam magna, feugiat in urna euismod, suscipit varius odio.
-                Duis eu congue mauris. Proin luctus, lacus sit amet commodo scelerisque, risus dolor sagittis massa,
-                eget mollis eros elit in sapien. Quisque a quam eu mi posuere gravida sit amet at diam. Sed mattis
-                at sagittis pellentesque. Donec in hendrerit felis, pellentesque posuere leo. Pellentesque
-                venenatis porttitor rhoncus. Maecenas interdum vulputate neque, at lobortis purus hendrerit at.
-                Nam a ipsum ut sem tristique malesuada. Praesent nec urna id ligula
-                rutrum fermentum. Phasellus odio arcu, tincidunt consequat nibh non, sollicitudin faucibus odio.
-                Pellentesque habitant morbi tristique senectus et netus et malesuada.</p>
+            <div class="links">
+                <a href="#" class="user">
+                    <i class="far fa-user"></i>
+                    <p>by admin</p>
+                </a>
+                <a href="#" class="icon">
+                    <img src="{% static 'images/chat.png' %}" alt="comments">
+                    <p>(45)</p>
+                </a>
 
-        </section>
+            </div>
+        </div>
 
+    </div>
+</section>
+        </div>
+</div>
 {% endblock %}
 
 </body>
