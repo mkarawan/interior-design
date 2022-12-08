@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
+{% block title %}{{post.title}}{% endblock %}
 {% block container %}
 <div class="first">
             <div class="heading">
-      <h3>Article <span>category </span></h3>
+      <h3><a href="{% url 'blog:categories' post.category.id %}">{{ post.category }}</a></h3>
     </div>
     
     <div class="width-article">
@@ -17,54 +17,19 @@
     <div class="posts-container">
 
         <div class="post">
-            <img src="images/blog-3.jpg" alt="" class="image">
+            <img src="{{ post.image.url }}" class="image" alt="{{ post.title }}"/>
             <div class="date">
                 <i class="far fa-clock"></i>
-                <span>1st may, 2021</span>
+                <span>{{ post.published }}</span>
             </div>
-            <h3 class="title">blog title goes here</h3>
+            <h3 class="title">{{ post.title }}</h3>
             <p class="text">
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis dapibus felis, ut tincidunt mauris aliquet id.
-                Ut vitae odio nec ligula tempor pharetra nec sit amet est. Pellentesque leo leo, dictum quis condimentum
-                ut, eleifend vel erat. Quisque mattis metus sit amet ipsum ultrices, ut porttitor quam hendrerit.
-                Praesent ornare ex at arcu rutrum fringilla. Nulla facilisi. Phasellus malesuada viverra efficitur.
-                Vestibulum fermentum eget sem eget bibendum. Nulla lacinia, nulla vel dignissim ultrices, orci magna
-                congue eros, a vestibulum nulla nunc sit amet libero. Curabitur condimentum sollicitudin porttitor.
-                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus
-                sed neque suscipit diam porttitor molestie. Maecenas scelerisque ultricies sem, quis pharetra lectus.
-                Etiam ullamcorper dolor elementum, cursus orci at, egestas augue. Maecenas et tellus mi.cum doloremque
-                quasi fugiat exercitationem aliquid cupiditate pariatur. Dolor laboriosam voluptatem ex praesentium
-                magni error debitis maxime alias autem distinctio. Fuga, esse velit!</p>
-            <p class="text">Nunc viverra porttitor turpis sed congue. Mauris tortor odio, vestibulum vitae dui sit amet,
-                euismod fermentum purus. Sed ac erat cursus, pellentesque tortor suscipit, tincidunt quam. Duis ut ex
-                tortor. Nulla est elit, tristique sit amet nisi sed, consequat facilisis lectus. Mauris ex urna, varius
-                in nisl eu, semper suscipit tortor. Etiam dapibus nisl lectus, ac bibendum urna malesuada at. Praesent
-                at pretium eros, a malesuada lorem.at obcaecati quaerat voluptates fuga error dicta cupiditate pariatur
-                soluta dolorum quis eum quibusdam quam?</p>
-            <p class="text">Duis consequat consectetur tellus non consectetur. Aliquam ultricies velit in turpis aliquet
-                ullamcorper. Duis lacinia eros quis ultrices aliquam. Vivamus placerat ante eget lectus rutrum posuere.
-                Cras eget nisi eu orci aliquam interdum. Nunc porttitor auctor elit, id laoreet nisi malesuada quis.
-                Vestibulum at sem interdum, fringilla magna at, finibus diam. Nunc nec efficitur libero. Vestibulum
-                luctus fermentum quam in dictum. Cras convallis leo eu nibh tempor malesuada in sed purus. Etiam
-                consectetur elit turpis, in consectetur turpis vulputate ac.</p>
-            <p class="text">Praesent sed ultrices tortor. Morbi vitae nisi laoreet, consequat leo eu, consectetur arcu.
-                Etiam fringilla massa nec porta lobortis. Vivamus at semper mi. Quisque vestibulum euismod suscipit.
-                Nunc tempor turpis nec egestas sodales. Maecenas finibus aliquam orci sollicitudin suscipit. Nam
-                placerat purus metus, et pulvinar nulla congue et. Donec commodo imperdiet odio nec interdum. Fusce sed
-                nisi non erat viverra egestas. Aenean faucibus nulla vitae ipsum interdum tempor. Aenean pharetra est
-                in dui mollis, quis sagittis ex feugiat.</p>
-            <p class="text">Sed convallis nunc sed mi elementum, id pellentesque felis aliquet consectetur arcu.
-                Etiam fringilla massa nec porta lobortis. Vivamus at semper mi. Quisque vestibulum euismod suscipit.
-                Nunc tempor turpis nec egestas sodales. Maecenas finibus aliquam orci sollicitudin suscipit. Nam
-                placerat purus metus, et pulvinar nulla congue et. Donec commodo imperdiet odio nec interdum. Fusce sed
-                Etiam fringilla massa nec porta lobortis. Vivamus at semper mi. Quisque vestibulum euismod suscipit.
-                nisi non erat viverra egestas. Aenean faucibus nulla vitae ipsum interdum tempor. Aenean pharetra est
-                in dui mollis, quis sagittis ex feugiat.</p>
+              {{ post.content }}</p>
 
             <div class="links">
                 <a href="#" class="user">
                     <i class="far fa-user"></i>
-                    <p>by admin</p>
+                    <p>by {{ post.author }}</p>
                 </a>
                 <a href="#" class="icon">
                     <img src="{% static 'images/chat.png' %}" alt="comments">

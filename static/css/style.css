@@ -37,6 +37,7 @@ margin-bottom: 3.5rem;
 }
 
 
+
 .width{
     width: 100%;
     max-width: 1300px;
@@ -55,7 +56,9 @@ margin-top: 150px;
 text-align: center;
 margin: auto;
 }
-
+.first a{
+    color:black;
+}
 .art-photo{
 height: 300px;}
 
@@ -135,12 +138,10 @@ height: 300px;}
 
 }
 
-@media only screen and (max-width: 768px){
-.heading{
-  width: 100%;
-}
+@media only screen and (max-width: 920px){
+
 .heading h3{
-  font-size: 1.5em;
+  font-size: 2.3em;
 
 }
 
@@ -301,6 +302,11 @@ textarea{
     border-radius: .5rem;
     object-fit: cover;
 }
+.photo-category{
+    width:100%;
+    height: 420px;
+    object-fit: cover;
+}
 
 .posts-container .post .date{
     padding-top: 2rem;
@@ -401,10 +407,11 @@ textarea{
 }
 
 .pocket .sidebar .sidebar-box .about-box .follow{
-display:flex;
-justify-content: space-between;
+
+    display:flex;
+    justify-content: space-between;
     margin: auto;
-    padding:1rem 0;
+    padding:1rem 1rem;
 }
 
 .pocket .sidebar .sidebar-box .about-box .follow a{
@@ -515,6 +522,12 @@ justify-content: space-between;
     }
 /*-----------------media queries--------------------*/
 @media (max-width:768px){
+    .heading{
+      width: 100%;
+    }
+    .heading h3{
+        font-size: 1.9rem;
+    }
 
     .back button{
         font-size: 1.2rem;
@@ -525,6 +538,7 @@ justify-content: space-between;
 
     .first .photo{
         height: 300px;
+        object-fit: cover;
     }
 
     .pocket{
@@ -535,6 +549,11 @@ justify-content: space-between;
     .posts-container .post .image{
     height: 25rem;
     }
+
+    .photo-category{
+        height: 300px;
+    }
+
     .pocket .sidebar .sidebar-box .about-box .follow{
         margin: 0px 30px;
     }
@@ -556,4 +575,12 @@ justify-content: space-between;
     .posts-container .post .image{
     height: 20rem;
     }
+    .photo-category{
+        height: 230px;
+    }
+
+    .heading h3{
+        font-size: 1.5rem;
+    }
+
 }
