@@ -6,7 +6,10 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Design Blog</title>
+
+
+<title>{% block title %}{% endblock %}</title>
+
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
 <!--        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>-->
@@ -22,10 +25,9 @@
          <ul>
              <li><a href="#">Categories +</a>
              <ul>
-                 <li><a href="{% url 'blog:category' %}">Ideas</a></li>
-                 <li><a href="{% url 'blog:category' %}">Advices</a></li>
-                 <li><a href="{% url 'blog:category' %}">Garden</a></li>
-                 <li><a href="{% url 'blog:category' %}">DIY</a></li>
+                {% for category in cats %}
+                 <li><a href="{% url 'blog:categories' category.id %}">{{ category.title }}</a></li>
+                {% endfor %}
              </ul></li>
              <li><a href="{% url 'blog:about_me' %}">About me</a></li>
              <li><a href="{% url 'blog:projects' %}">My projects</a></li>
