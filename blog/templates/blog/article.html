@@ -31,6 +31,14 @@
                     <i class="far fa-user"></i>
                     <p>by {{ post.author }}</p>
                 </a>
+                <div class="post-tags">
+                {% for tag in post.tags.all %}
+                <a href="{% url 'blog:post_tag' tag.slug %}" class="tag">
+                    <p>{{ tag.name }}</p>
+                </a>
+                {% endfor %}
+                    </div>
+
                 <a href="#" class="icon">
                     <img src="{% static 'images/chat.png' %}" alt="comments">
                     <p>(45)</p>

@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from taggit.managers import TaggableManager
 
 
 class Category(models.Model):
@@ -20,6 +21,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=200, unique=True, blank=True)
     image = models.ImageField(upload_to='images')
     updated = models.DateTimeField(auto_now=True)
+    tags = TaggableManager()
 
     class Meta:
         ordering = ['-published']

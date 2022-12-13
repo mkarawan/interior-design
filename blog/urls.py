@@ -11,5 +11,7 @@ urlpatterns = [
     path('about_me', views.AboutMe.as_view(), name='about_me'),
     path('projects', views.Projects.as_view(), name='projects'),
     path('contact', views.Contact.as_view(), name='contact'),
+    path('tag/<slug:tag_slug>/', views.Tags.as_view(), name='post_tag'),
+
 
 ]

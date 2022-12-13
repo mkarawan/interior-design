@@ -1,21 +1,24 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} Welcome to my blog {% endblock %}
+{% block title %} Tag #{{ tag.name }} {% endblock %}
 
 {% block container %}
 
 <div class="first">
             <div class="heading">
-      <h3>Welcome<span> to my Blog</span></h3>
+      <h3>Articles</span></h3>
     </div>
 <div class="photo">
 </div>
 <!-- posts section starts  -->
 <div class="width">
+            <div class="tag-name">
+    <h3>#{{ tag.name }}</h3></div>
 <section class="pocket" id="posts">
 
     <div class="posts-container">
-    {% for post in posts %}
+
+    {% for post in tag_posts %}
         <div class="post">
 
             <a href="{% url 'blog:article' post.id %}">
@@ -40,5 +43,6 @@
         </a></div>
     {% endfor %}
     </div>
+
 {% include 'blog/sidebar.html' %}
 {% endblock %}
