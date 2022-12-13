@@ -1,0 +1,83 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+<title>{% block title %}{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
+<!--        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>-->
+
+</head>
+<div class="sidebar">
+
+        <div class="sidebar-box">
+            <h3 class="title">about me</h3>
+            <div class="about-box">
+                <img class="about-image" src="{% static 'images/woman.jpg'%}" alt="">
+                <h3>Kailee Duana</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, officia.</p>
+                <button class="btn"><a href="{% url 'blog:about_me' %}">Read more</a></button>
+                <div class="follow">
+                    <a href="https://www.facebook.com/" class="fab fa-facebook-f"><img src="{% static 'images/facebook.png' %}" alt="facebook"></a>
+                    <a href="https://twitter.com/?lang=pl" class="fab fa-twitter"><img src="{% static 'images/twitter.png' %}" alt="twitter"></a>
+                    <a href="https://www.instagram.com/" class="fab fa-instagram"><img src="{% static 'images/instagram.png' %}" alt="instagram"></a>
+                    <a href="https://www.linkedin.com/in/mkarawan/" class="fab fa-linkedin"><img src="{% static 'images/linkedin.png' %}" alt="linkedin"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-box">
+            <h3 class="title">categories</h3>
+            <div class="category">
+                {% for category in cats %}
+                <a href="{% url 'blog:categories' category.id %}">{{ category.title }}<span>{{ category.post_set.count }}</span></a>
+                {% endfor %}
+
+            </div>
+        </div>
+
+        <div class="sidebar-box">
+            <h3 class="title">popular posts</h3>
+            <div class="p-post">
+                <a href="">
+                    <h3>01. blog title goes here</h3>
+                    <span><i class="far fa-clock"></i>1st may, 2021</span>
+                </a>
+                <a href="">
+                    <h3>02. blog title goes here</h3>
+                    <span><i class="far fa-clock"></i>1st may, 2021</span>
+                </a>
+                <a href="">
+                    <h3>03. blog title goes here</h3>
+                    <span><i class="far fa-clock"></i>1st may, 2021</span>
+                </a>
+                <a href="">
+                    <h3>04. blog title goes here</h3>
+                    <span><i class="far fa-clock"></i>1st may, 2021</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="sidebar-box">
+            <h3 class="title">popular tags</h3>
+            <div class="tags">
+                {% for tag in popular_tags %}
+                <a href="{% url 'blog:post_tag' tag.slug %}">{{ tag.name }}</a>
+                {% endfor %}
+
+            </div>
+        </div>
+
+    </div>
+
+</section>
+    </div>
+</div>
+</html>
