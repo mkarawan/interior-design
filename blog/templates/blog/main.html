@@ -15,6 +15,7 @@
 <section class="pocket" id="posts">
 
     <div class="posts-container">
+        {% include 'blog/pagination.html' %}
     {% for post in posts %}
         <div class="post">
 
@@ -39,6 +40,11 @@
             </div>
         </a></div>
     {% endfor %}
+        <!----------   pagination     ------------->
+       {% include 'blog/pagination.html' %}
+                <!----------    end of pagination     ------------->
     </div>
+
 {% include 'blog/sidebar.html' %}
+</section>
 {% endblock %}

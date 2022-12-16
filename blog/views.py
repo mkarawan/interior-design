@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator, EmptyPage
 from django.shortcuts import render, get_object_or_404
 from django.views import View
 from django.views.generic import TemplateView
@@ -10,24 +11,31 @@ from blog.models import Post, Category
 
 class HomeView(TemplateView):
     template_name = 'blog/main.html'
-
-    def get_context_data(self, **kwargs):
-        ctx = super().get_context_data(**kwargs)
-        ctx['posts'] = Post.objects.all()
-
-        return ctx
+    def get(self, request):
+        posts = Post.objects.all().order_by('-published')
+        paginator = Paginator(posts, 4)
+        page_num = request.GET.get('page', 1)
+        try:
+            page = paginator.page(page_num)
+        except EmptyPage:
+            page = paginator.page(1)
+        return render(request, 'blog/main.html', context={'posts':page})
 
 
 class Categories(TemplateView):
     template_name = 'blog/category.html'
 
-
     def get(self, request, id):
         categories = Category.objects.all()
         category = Category.objects.get(pk=id)
         posts = Post.objects.filter(category=category).order_by('-published')
-
-        return render(request, 'blog/category.html', context={'category': category, 'posts': posts, 'categories': categories})
+        paginator = Paginator(posts, 4)
+        page_num = request.GET.get('page', 1)
+        try:
+            page = paginator.page(page_num)
+        except EmptyPage:
+            page = paginator.page(1)
+        return render(request, 'blog/category.html', context={'category': category, 'posts': page, 'categories': categories})
 
 
 class Article(View):
@@ -58,5 +66,11 @@ class Tags(View):
         if tag_slug:
             tag = get_object_or_404(Tag, slug=tag_slug)
             tag_posts = posts.filter(tags__in=[tag])
-        return render(request, 'blog/tag.html', context={'posts': posts, 'tag': tag, 'tag_posts': tag_posts})
+        paginator = Paginator(posts, 2)
+        page_num = request.GET.get('page', 1)
+        try:
+            page = paginator.page(page_num)
+        except EmptyPage:
+            page = paginator.page(1)
+        return render(request, 'blog/tag.html', context={'posts': page, 'tag': tag, 'tag_posts': tag_posts})
 
