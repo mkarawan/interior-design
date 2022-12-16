@@ -19,18 +19,18 @@
     {% for post in posts %}
         <div class="post">
 
-            <a href="{% url 'blog:article' post.id %}">
+            <a href="{{ post.get_absolute_url }}">
             <img src="{{ post.image.url }}" class="image" alt="{{ post.title }}"/>
             <div class="date">
                 <i class="far fa-clock"></i>
                 <span>{{ post.published }}</span>
             </div>
-            <h3 class="title">{{ post.title }}</h3>
+            <h3 class="title">{{ post.title|title }}</h3>
             <p class="text">{{ post.content|slice:":300" }}...</p>
             <div class="links">
                 <a href="#" class="user">
                     <i class="far fa-user"></i>
-                    <p>by {{ post.author }}</p>
+                    <p>by {{ post.author|capfirst }}</p>
                 </a>
                 <a href="#" class="icon">
                     <img src="{% static 'images/chat.png' %}" alt="comments">
@@ -47,4 +47,6 @@
 
 {% include 'blog/sidebar.html' %}
 </section>
+</div>
+</div>
 {% endblock %}

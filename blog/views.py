@@ -5,7 +5,6 @@ from django.views.generic import TemplateView
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.views import LogoutView
 from taggit.models import Tag
-
 from blog.models import Post, Category
 
 
@@ -25,9 +24,9 @@ class HomeView(TemplateView):
 class Categories(TemplateView):
     template_name = 'blog/category.html'
 
-    def get(self, request, id):
+    def get(self, request, slug):
         categories = Category.objects.all()
-        category = Category.objects.get(pk=id)
+        category = Category.objects.get(slug=slug)
         posts = Post.objects.filter(category=category).order_by('-published')
         paginator = Paginator(posts, 4)
         page_num = request.GET.get('page', 1)
@@ -39,8 +38,8 @@ class Categories(TemplateView):
 
 
 class Article(View):
-    def get(self, request, id, tag_slug=None):
-        post = Post.objects.get(pk=id)
+    def get(self, request, slug, tag_slug=None):
+        post = Post.objects.get(slug=slug)
         tag = None
         if tag_slug:
             tag = get_object_or_404(Tag, slug=tag_slug)
@@ -66,11 +65,12 @@ class Tags(View):
         if tag_slug:
             tag = get_object_or_404(Tag, slug=tag_slug)
             tag_posts = posts.filter(tags__in=[tag])
-        paginator = Paginator(posts, 2)
+        paginator = Paginator(tag_posts, 4)
         page_num = request.GET.get('page', 1)
         try:
             page = paginator.page(page_num)
         except EmptyPage:
             page = paginator.page(1)
         return render(request, 'blog/tag.html', context={'posts': page, 'tag': tag, 'tag_posts': tag_posts})
+
 

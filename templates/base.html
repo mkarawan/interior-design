@@ -26,7 +26,7 @@
              <li><a href="#">Categories +</a>
              <ul>
                 {% for category in cats %}
-                 <li><a href="{% url 'blog:categories' category.id %}">{{ category.title }}</a></li>
+                 <li><a href="{% url 'blog:categories' category.slug %}">{{ category.title }}</a></li>
                 {% endfor %}
              </ul></li>
              <li><a href="{% url 'blog:about_me' %}">About me</a></li>
