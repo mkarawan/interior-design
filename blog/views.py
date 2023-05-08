@@ -18,7 +18,7 @@ class HomeView(TemplateView):
             page = paginator.page(page_num)
         except EmptyPage:
             page = paginator.page(1)
-        return render(request, 'blog/main.html', context={'posts':page})
+        return render(request, 'blog/main.html', context={'posts': page})
 
 
 class Categories(TemplateView):
@@ -62,6 +62,7 @@ class Tags(View):
     def get(self, request, tag_slug=None):
         posts = Post.objects.all()
         tag = None
+        tag_posts = posts
         if tag_slug:
             tag = get_object_or_404(Tag, slug=tag_slug)
             tag_posts = posts.filter(tags__in=[tag])
@@ -71,6 +72,6 @@ class Tags(View):
             page = paginator.page(page_num)
         except EmptyPage:
             page = paginator.page(1)
-        return render(request, 'blog/tag.html', context={'posts': page, 'tag': tag, 'tag_posts': tag_posts})
+        return render(request, 'blog/tag.html', context={'posts': page, 'tag': tag})
 
 

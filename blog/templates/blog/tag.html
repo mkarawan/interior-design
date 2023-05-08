@@ -19,10 +19,10 @@
     <div class="posts-container">
     {% include 'blog/pagination.html' %}
 
-    {% for post in tag_posts %}
+    {% for post in posts.object_list %}
         <div class="post">
 
-            <a href="{% url 'blog:article' post.id %}">
+            <a href="{{ post.get_absolute_url }}">
             <img src="{{ post.image.url }}" class="image" alt="{{ post.title }}"/>
             <div class="date">
                 <i class="far fa-clock"></i>
@@ -53,3 +53,4 @@
 </section>
 </div>
 {% endblock %}
+</div>
