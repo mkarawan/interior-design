@@ -643,3 +643,47 @@ textarea{
         font-size: 1.2em;
     }
 }
+/*------------------------COMMENTS-------------------*/
+.comments{
+    margin: 0 auto;
+    padding: 0px 20px;
+    max-width: 900px;
+}
+.comment {
+    box-shadow: 1px 3px 10px -5px rgba(66, 68, 90, 0.36);
+    margin-bottom: 15px;
+    padding: 8px 20px;
+    border-radius: 5px;
+}
+.leave-a-comment{
+    box-shadow: none;
+}
+.name-and-date{
+    display: flex;
+    justify-content: space-between;
+}
+.name-and-date .comment-name{
+   font-weight: bold;
+    color: var(--color);
+    font-size: larger;
+}
+.comment .comment-content{
+    margin: 10px 10px;
+}
+.comment .comment-delete{
+    margin: 0px 10px;
+    border: none;
+    color: grey;
+    background: none;
+    font-size: medium;
+}
+.comment .comment-delete:hover{
+        color: var(--color);
+}
+.comments h2{
+    padding: 15px 0px;
+}
+.comments .leave-a-comment .field{
+
+}
+

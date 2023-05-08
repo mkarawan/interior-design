@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     # 3rd party
 
     'taggit',
+    'widget_tweaks',
+
 
     # local
 
@@ -165,3 +167,4 @@ LOGIN_REDIRECT_URL = 'blog:blog'
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+

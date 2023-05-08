@@ -12,6 +12,8 @@ urlpatterns = [
     path('projects', views.Projects.as_view(), name='projects'),
     path('contact', views.Contact.as_view(), name='contact'),
     path('tag/<slug:tag_slug>/', views.Tags.as_view(), name='post_tag'),
+    path('article/<slug:slug>/delete_comment/<int:comment_id>/', views.DeleteComment.as_view(), name='delete_comment'),
+
 
 
 ]

@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% load widget_tweaks %}
 {% block title %}{{post.title}}{% endblock %}
 {% block container %}
 <div class="first">
@@ -50,24 +50,48 @@
     </div>
 </section>
 <div class="comments">
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
 
-    <h2>Comments</h2>
-    <ul>
-        <li>
-            <p>nazwa</p><p>data przesłania</p>
-            <p>content</p>
-        </li>
-    </ul>
+  <h2>{{ comments.count }} comments</h2>
+
+        {% for comment in comments %}
+        <div class="comment">
+            <div class="name-and-date">
+          <p class="comment-name">
+              {{ comment.name }}</p>
+            <p class="comment-date">{{ comment.published }}</p>
+            </div>
+            <div class="comment-content">
+                {{ comment.content | linebreaks }}</div>
+         <form method="post" action="{% url 'blog:delete_comment' slug=post.slug comment_id=comment.id %}">
+            {% csrf_token %}
+            <button type="submit" class="comment-delete">Delete comment</button>
+        </form>
+                </div>
+        {% endfor %}
+
+        <h2>Leave a comment</h2>
     <div class="leave-a-comment">
-    <h2>Leave a Comment</h2>
-
-    <textarea></textarea>
-       <input type="text">name
-    <button>Send</button>
-        </div>
-</div>
-        </div>
 
 
+
+
+<form method="post">
+  {% csrf_token %}
+
+    {{ form.name|add_class:"form-control" }}
+    {{ form.content|add_class:"form-control" }}
+
+  <button type="submit" class="b">Send</button>
+</form>
+
+      </div>
     </div>
+
 {% endblock %}

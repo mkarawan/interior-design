@@ -5,8 +5,10 @@ from django.views.generic import TemplateView
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.views import LogoutView
 from taggit.models import Tag
-from blog.models import Post, Category
-
+from blog.models import Post, Category, Comment
+from blog.forms import CommentForm
+from django.contrib import messages
+from django.shortcuts import redirect
 
 class HomeView(TemplateView):
     template_name = 'blog/main.html'
@@ -44,8 +46,36 @@ class Article(View):
         if tag_slug:
             tag = get_object_or_404(Tag, slug=tag_slug)
             posts = post.filter(tags__in=[tag])
-        return render(request, 'blog/article.html', context={'post': post, 'tag': tag})
+        comment_form = CommentForm()
+        comments = post.comments.all()
+        new_comment = None
+        return render(request, 'blog/article.html', context={'post': post,
+                                                              'comments': comments,
+                                                              'new_comment': new_comment,
+                                                              'comment_form': comment_form,
+                                                              'tag': tag})
 
+    def post(self, request, slug, tag_slug=None):
+        post = Post.objects.get(slug=slug)
+        tag = None
+        if tag_slug:
+            tag = get_object_or_404(Tag, slug=tag_slug)
+            posts = post.filter(tags__in=[tag])
+        comment_form = CommentForm(request.POST)
+        comments = post.comments.all()
+        new_comment = None
+        if comment_form.is_valid():
+            new_comment = comment_form.save(commit=False)
+            new_comment.post = post
+            new_comment.save()
+            comment_form = CommentForm()
+            messages.success(request, "Komentarz został dodany!")
+            return redirect(request.path_info)
+        return render(request, 'blog/article.html', context={'post': post,
+                                                              'comments': comments,
+                                                              'new_comment': new_comment,
+                                                              'comment_form': comment_form,
+                                                              'tag': tag})
 
 class AboutMe(TemplateView):
     template_name = 'blog/aboutme.html'
@@ -74,4 +104,10 @@ class Tags(View):
             page = paginator.page(1)
         return render(request, 'blog/tag.html', context={'posts': page, 'tag': tag})
 
+class DeleteComment(View):
+    def post(self, request, slug, comment_id):
+        comment = get_object_or_404(Comment, id=comment_id)
+        post = comment.post
+        comment.delete()
+        return redirect('blog:article', slug=post.slug)
 

@@ -4,6 +4,7 @@ from django.template.defaultfilters import slugify
 from django.urls import reverse
 from taggit.managers import TaggableManager
 
+
 class Category(models.Model):
     title = models.TextField()
     slug = models.SlugField(max_length=200, unique=True, blank=True)
@@ -38,3 +39,15 @@ class Post(models.Model):
             self.slug = slugify(self.title)
         return super().save(*args, **kwargs)
 
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+    name = models.CharField(max_length=80)
+    content = models.TextField()
+    published = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-published']
+
+    def __str__(self):
+        return 'Comment {} by {}'.format(self.content, self.name)
