@@ -10,7 +10,7 @@ urlpatterns = [
     path('article/<slug:slug>/', views.Article.as_view(), name='article'),
     path('about_me', views.AboutMe.as_view(), name='about_me'),
     path('projects', views.Projects.as_view(), name='projects'),
-    path('contact', views.Contact.as_view(), name='contact'),
+    path('contact', views.contact, name='contact'),
     path('tag/<slug:tag_slug>/', views.Tags.as_view(), name='post_tag'),
     path('article/<slug:slug>/delete_comment/<int:comment_id>/', views.DeleteComment.as_view(), name='delete_comment'),
 

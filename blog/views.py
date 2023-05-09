@@ -9,6 +9,15 @@ from blog.models import Post, Category, Comment
 from blog.forms import CommentForm
 from django.contrib import messages
 from django.shortcuts import redirect
+from .forms import ContactForm
+from django.core.mail import send_mail
+from django.conf import settings
+from django.core.mail import EmailMessage
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+from django.template import RequestContext
+
+
 
 class HomeView(TemplateView):
     template_name = 'blog/main.html'
@@ -85,8 +94,61 @@ class Projects(TemplateView):
     template_name = 'blog/projects.html'
 
 
-class Contact(TemplateView):
-    template_name = 'blog/contact.html'
+# def contact(request):
+#     if request.method == 'POST':
+#         form = ContactForm(request.POST)
+#         if form.is_valid():
+#             name = form.cleaned_data['name']
+#             email = str(form.cleaned_data['email'])
+#             message = form.cleaned_data['message']
+#             send_mail(
+#                 'New message from your website',
+#                 f'From: {name}, Email: {email}, Message: {message}',
+#                 email,
+#                 ['settings.DEFAULT_FROM_EMAIL',],
+#                 fail_silently=False,)
+#             messages.success(request, "Email was sent!")
+#             return redirect(request.path_info)
+#     else:
+#         form = ContactForm()
+#     return render(request, 'blog/contact.html', {'form': form})
+from django.core.mail import EmailMessage
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+
+def contact(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            message = form.cleaned_data['message']
+
+            # Utwórz nowy obiekt EmailMessage
+            email_message = EmailMessage(
+                'New message from your website',
+                strip_tags(render_to_string('blog/contact.html', {'name': name, 'email': email, 'message': message})),
+                email, # adres e-mail nadawcy
+                ['settings.DEFAULT_FROM_EMAIL'], # adres e-mail odbiorcy
+            )
+            email_message.encoding = 'utf-8' # opcjonalnie: użyj kodowania UTF-8
+            try:
+                email_message.send()
+                messages.success(request, 'Wiadomość została wysłana.')
+                return redirect(request.path_info)
+            except:
+                messages.warning(request, 'Wystąpił problem podczas wysyłania wiadomości.')
+        else:
+            messages.warning(request, 'Formularz jest niepoprawny.')
+
+    else:
+        form = ContactForm()
+    context = {
+        'form':form,
+    }
+    context = RequestContext(request, context)
+    return render(request, 'blog/contact.html', context.flatten())
+
 
 class Tags(View):
     def get(self, request, tag_slug=None):

@@ -649,6 +649,7 @@ textarea{
     margin: 0 auto;
     padding: 0px 20px;
     max-width: 900px;
+    padding-bottom: 70px;
 }
 .comment {
     box-shadow: 1px 3px 10px -5px rgba(66, 68, 90, 0.36);
@@ -684,7 +685,5 @@ textarea{
 .comments h2{
     padding: 15px 0px;
 }
-.comments .leave-a-comment .field{
 
-}
 
