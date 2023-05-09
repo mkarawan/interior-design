@@ -46,22 +46,13 @@
         <div class="sidebar-box">
             <h3 class="title">popular posts</h3>
             <div class="p-post">
-                <a href="">
-                    <h3>01. blog title goes here</h3>
-                    <span><i class="far fa-clock"></i>1st may, 2021</span>
+                {% for post in popular_posts %}
+                <a href="{{ post.get_absolute_url }}">
+                    <h3>{{ post.title }}</h3>
+                    <span><i class="far fa-clock"></i>{{ post.published }}</span>
                 </a>
-                <a href="">
-                    <h3>02. blog title goes here</h3>
-                    <span><i class="far fa-clock"></i>1st may, 2021</span>
-                </a>
-                <a href="">
-                    <h3>03. blog title goes here</h3>
-                    <span><i class="far fa-clock"></i>1st may, 2021</span>
-                </a>
-                <a href="">
-                    <h3>04. blog title goes here</h3>
-                    <span><i class="far fa-clock"></i>1st may, 2021</span>
-                </a>
+                {% endfor %}
+
             </div>
         </div>
 

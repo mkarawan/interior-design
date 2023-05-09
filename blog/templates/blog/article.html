@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% load static %}
-{% load widget_tweaks %}
 {% block title %}{{post.title}}{% endblock %}
 {% block container %}
 <div class="first">
@@ -41,7 +40,7 @@
 
                 <a href="#" class="icon">
                     <img src="{% static 'images/chat.png' %}" alt="comments">
-                    <p>(45)</p>
+                    <p>({{ comments.count }})</p>
                 </a>
 
             </div>
@@ -84,14 +83,17 @@
 
 <form method="post">
   {% csrf_token %}
+{% load widget_tweaks %}
 
-    {{ form.name|add_class:"form-control" }}
-    {{ form.content|add_class:"form-control" }}
+    {{ comment_form.name|add_class:"form-control field"|attr:"placeholder=Name"  }}
 
-  <button type="submit" class="b">Send</button>
+    {{ comment_form.content|add_class:"form-control field"|attr:"placeholder=Comment..." }}
+
+    <button type="submit" class="btn"><a>Send</a></button>
 </form>
 
       </div>
     </div>
-
+    </div>
+</div>
 {% endblock %}

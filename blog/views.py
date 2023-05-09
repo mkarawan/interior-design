@@ -69,7 +69,7 @@ class Article(View):
             new_comment.post = post
             new_comment.save()
             comment_form = CommentForm()
-            messages.success(request, "Komentarz został dodany!")
+            messages.success(request, "Comment has been added!")
             return redirect(request.path_info)
         return render(request, 'blog/article.html', context={'post': post,
                                                               'comments': comments,
@@ -109,5 +109,6 @@ class DeleteComment(View):
         comment = get_object_or_404(Comment, id=comment_id)
         post = comment.post
         comment.delete()
+        messages.success(request, "Comment has been deleted!")
         return redirect('blog:article', slug=post.slug)
 
