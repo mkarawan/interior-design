@@ -1,2 +1,2 @@
-# Interior design blog
+# Interior design blog in progress
 
